@@ -29,7 +29,7 @@ public class SituacionPublica extends SituacionSocial {
     public void setLugar(String lugar) {
         this.lugar = lugar;
     }
-
+//Sobrescritura
     @Override
     public String obtenerConsejo() {
         if (lugar != null && !lugar.isEmpty()) {

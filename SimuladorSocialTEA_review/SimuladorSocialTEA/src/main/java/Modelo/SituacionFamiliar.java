@@ -29,7 +29,7 @@ public class SituacionFamiliar extends SituacionSocial {
     public void setFamiliarInvolucrado(String familiarInvolucrado) {
         this.familiarInvolucrado = familiarInvolucrado;
     }
-
+//Sobrescritura
     @Override
     public String obtenerConsejo() {
         if (familiarInvolucrado != null && !familiarInvolucrado.isEmpty()) {

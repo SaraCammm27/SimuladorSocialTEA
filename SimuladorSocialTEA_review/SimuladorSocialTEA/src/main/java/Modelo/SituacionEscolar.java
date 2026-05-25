@@ -29,7 +29,7 @@ public class SituacionEscolar extends SituacionSocial {
     public void setAsignatura(String asignatura) {
         this.asignatura = asignatura;
     }
-
+//Sobrescritura
     @Override
     public String obtenerConsejo() {
         if (asignatura != null && !asignatura.isEmpty()) {
