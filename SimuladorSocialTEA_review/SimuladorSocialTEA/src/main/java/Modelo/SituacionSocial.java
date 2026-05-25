@@ -53,7 +53,7 @@ public abstract class SituacionSocial implements Evaluable {
                 opcion.getPuntos()
         );
     }
-
+//Método Abstracto
     public abstract String obtenerConsejo();
 
     public int getId() {
