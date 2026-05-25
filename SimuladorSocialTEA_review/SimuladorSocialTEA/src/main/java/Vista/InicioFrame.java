@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
-
+/*Interfaz Inicial*/
 import Controlador.SimuladorControlador;
 import Util.Validador;
 import javax.swing.JOptionPane;
