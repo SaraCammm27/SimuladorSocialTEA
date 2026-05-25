@@ -6,6 +6,7 @@ package Modelo;
 //Clase padre 
 import java.util.ArrayList;
 //Clase Abstracta
+//Interfaz
 public abstract class SituacionSocial implements Evaluable {
 
     private int id;
