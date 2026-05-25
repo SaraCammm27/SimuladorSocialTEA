@@ -1,0 +1,11 @@
+target/
+nbproject/private/
+*.class
+*.jar
+*.war
+*.ear
+reporte_*.txt
+reporte_progreso.txt
+.idea/
+.vscode/
+

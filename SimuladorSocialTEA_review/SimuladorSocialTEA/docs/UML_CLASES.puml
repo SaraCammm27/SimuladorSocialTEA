@@ -1,0 +1,100 @@
+@startuml
+title Simulador Social TEA - Diagrama de clases
+
+interface Evaluable {
+  +evaluarRespuesta(opcion: OpcionRespuesta): ResultadoEvaluacion
+}
+
+abstract class SituacionSocial {
+  -id: int
+  -titulo: String
+  -descripcion: String
+  -categoria: String
+  -opciones: ArrayList<OpcionRespuesta>
+  +agregarOpcion(opcion: OpcionRespuesta): void
+  +evaluarRespuesta(opcion: OpcionRespuesta): ResultadoEvaluacion
+  +obtenerConsejo(): String
+}
+
+class SituacionEscolar {
+  -asignatura: String
+  +obtenerConsejo(): String
+}
+
+class SituacionFamiliar {
+  -familiarInvolucrado: String
+  +obtenerConsejo(): String
+}
+
+class SituacionPublica {
+  -lugar: String
+  +obtenerConsejo(): String
+}
+
+class OpcionRespuesta {
+  -id: int
+  -texto: String
+  -adecuada: boolean
+  -retroalimentacion: String
+  -puntos: int
+}
+
+class ResultadoEvaluacion {
+  -correcta: boolean
+  -mensaje: String
+  -puntosObtenidos: int
+}
+
+class Usuario {
+  -id: int
+  -nombre: String
+  -edad: int
+  -puntajeTotal: int
+  +sumarPuntos(puntos: int): void
+}
+
+class Progreso {
+  -id: int
+  -usuario: Usuario
+  -situacionesCompletadas: int
+  -puntajeAcumulado: int
+  -nivel: String
+  +registrarResultado(resultado: ResultadoEvaluacion): void
+  +actualizarNivel(): void
+  +calcularPromedio(): double
+}
+
+class SimuladorControlador {
+  -usuarioActual: Usuario
+  -progresoActual: Progreso
+  -situaciones: ArrayList<SituacionSocial>
+  +iniciarUsuario(nombre: String, edad: int): void
+  +obtenerSituacionesPorCategoria(categoria: String): ArrayList<SituacionSocial>
+  +responder(situacion: SituacionSocial, opcion: OpcionRespuesta): ResultadoEvaluacion
+}
+
+class UsuarioDAO
+class SituacionDAO
+class ProgresoDAO
+class ConexionBD
+
+Evaluable <|.. SituacionSocial
+SituacionSocial <|-- SituacionEscolar
+SituacionSocial <|-- SituacionFamiliar
+SituacionSocial <|-- SituacionPublica
+SituacionSocial "1" o-- "*" OpcionRespuesta
+SituacionSocial ..> ResultadoEvaluacion
+Progreso --> Usuario
+Progreso ..> ResultadoEvaluacion
+SimuladorControlador --> Usuario
+SimuladorControlador --> Progreso
+SimuladorControlador --> SituacionSocial
+SimuladorControlador --> UsuarioDAO
+SimuladorControlador --> SituacionDAO
+SimuladorControlador --> ProgresoDAO
+UsuarioDAO --> ConexionBD
+SituacionDAO --> ConexionBD
+ProgresoDAO --> ConexionBD
+
+@enduml
+
