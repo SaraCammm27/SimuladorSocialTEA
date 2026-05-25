@@ -85,6 +85,7 @@ public class SituacionDAO {
         return null;
     }
 
+    //Polimorfismo
     private SituacionSocial crearSituacionDesdeResultSet(ResultSet rs) throws SQLException {
         int id = rs.getInt("id_situacion");
         String titulo = rs.getString("titulo");
