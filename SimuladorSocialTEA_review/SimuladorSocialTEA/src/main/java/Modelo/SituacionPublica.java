@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
-
+//Herencia de clase Padre
 public class SituacionPublica extends SituacionSocial {
 
     private String lugar;
